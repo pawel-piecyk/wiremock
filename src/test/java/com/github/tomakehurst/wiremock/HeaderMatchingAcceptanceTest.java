@@ -38,6 +38,16 @@ public class HeaderMatchingAcceptanceTest extends AcceptanceTestBase {
 	}
 
 	@Test
+	public void mappingWithExactUrlMethodAndContentTypeHeaderIsCreatedAndReturned() {
+		testClient.addResponse(MappingJsonSamples.MAPPING_REQUEST_WITH_CONTENT_TYPE_HEADER);
+
+		WireMockResponse response = testClient.get("/header/content-type",
+                    withHeader("Content-Type", "text/plain; charset=utf-8"));
+
+		assertThat(response.statusCode(), is(304));
+	}
+
+	@Test
 	public void mappingMatchedWithRegexHeaders() {
 		testClient.addResponse(MappingJsonSamples.MAPPING_REQUEST_WITH_REGEX_HEADERS);
 		

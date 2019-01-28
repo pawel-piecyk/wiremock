@@ -43,7 +43,6 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
 import java.nio.ByteBuffer;
@@ -60,6 +59,7 @@ public class JettyHttpServer implements HttpServer {
 
     static {
         System.setProperty("org.eclipse.jetty.server.HttpChannelState.DEFAULT_TIMEOUT", "300000");
+        System.setProperty("org.eclipse.jetty.http.HttpParser.STRICT", "true");
     }
 
     private final Server jettyServer;

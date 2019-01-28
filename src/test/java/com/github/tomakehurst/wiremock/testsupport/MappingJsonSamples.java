@@ -100,6 +100,25 @@ public class MappingJsonSamples {
 	public static final String BASIC_TRACE = BASIC_GET.replace("GET", "TRACE");
 	public static final String BASIC_ANY_METHOD = BASIC_GET.replace("GET", "ANY");
 	
+	public static final String MAPPING_REQUEST_WITH_CONTENT_TYPE_HEADER =
+		"{ 															\n" +
+		"	\"request\": {											\n" +
+		"		\"method\": \"GET\",								\n" +
+		"		\"url\": \"/header/content-type\",					\n" +
+		"		\"headers\": {										\n" +
+            "			\"Content-Type\": {							\n" +
+		"				\"contains\": \"text/plain; charset=utf-8\"	\n" +
+		"			}												\n" +
+		"		}													\n" +
+		"	},														\n" +
+		"	\"response\": {											\n" +
+		"		\"status\": 304,									\n" +
+		"		\"headers\": {										\n" +
+		"			\"Content-Type\": \"text/xml\"					\n" +
+		"		}													\n" +
+		"	}														\n" +
+		"}															";
+
 	public static final String MAPPING_REQUEST_WITH_EXACT_HEADERS =
 		"{ 													\n" +
 		"	\"request\": {									\n" +
